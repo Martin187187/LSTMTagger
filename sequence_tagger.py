@@ -10,7 +10,7 @@ from models.tagging_dataset import TaggingDataset
 from utils.conll_reader import read_conll_file
 from utils.glove_loader import load_glove_vectors, get_emb_matrix
 from utils.metrics import precision_recall_f1
-from utils.training_utils import print_embeddings_for_sentence
+from utils.training_utils import print_embeddings_for_sentence, predict_tags
 from torch.nn.utils import clip_grad_norm_
 
 from utils.visualization import plot_f1_scores
@@ -71,7 +71,7 @@ for idx, weight in enumerate(class_weights):
 
 # Initialize loss function and optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.002)
 
 
 # Function to monitor gradients
@@ -94,7 +94,7 @@ best_model = None
 best_dev_f1 = 0
 best_epoch = 0
 for epoch in range(num_epochs):
-    #predict_tags([word.lower() for word in test_sentences[10]], model, vocab_to_idx, idx_to_label)
+    predict_tags([word.lower() for word in test_sentences[10]], model, vocab_to_idx, idx_to_label)
     model.train()
     total_loss = 0
 

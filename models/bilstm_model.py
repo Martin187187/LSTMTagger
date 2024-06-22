@@ -9,8 +9,7 @@ class LSTM_glove_vecs(nn.Module):
         self.embeddings = nn.Embedding.from_pretrained(torch.from_numpy(glove_weights), freeze=True)
         self.lstm = nn.LSTM(embedding_dim, hidden_dim, batch_first=False, bidirectional=True)
         self.linear = nn.Linear(hidden_dim * 2, num_labels)
-        self.dropout = nn.Dropout(0.7)
-        self.bn = nn.BatchNorm1d(hidden_dim * 2)
+        self.dropout = nn.Dropout(0.1)
         # Initialize LSTM weights and biases
         self.init_lstm_weights()
 
