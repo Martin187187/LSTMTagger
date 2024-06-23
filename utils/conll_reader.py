@@ -1,19 +1,26 @@
 def read_conll_file(file_path):
     sentences, labels = [], []
     with open(file_path, 'r', encoding='utf-8') as f:
-        sentence, label = [], []
+        sentence, sentence_labels = [], []
         for line in f:
-            line = line.strip()
-            if not line:
+            if line.startswith("-DOCSTART-"):
                 if sentence:
-                    sentences.append([word.lower() for word in sentence])
-                    labels.append(label)
-                    sentence, label = [], []
-            elif not line.startswith("-DOCSTART-"):
-                parts = line.split()
-                sentence.append(parts[0])
-                label.append(parts[-1])
+                    sentences.append(sentence)
+                    labels.append(sentence_labels)
+                    sentence = []
+                    sentence_labels = []
+                continue
+            if line.strip() == "":
+                continue
+            parts = line.strip().split()
+            token = parts[0].lower()  # Lowercase the token
+            label = parts[-1]
+            sentence.append(token)
+            sentence_labels.append(label)
+
+        # Append the last sentence if any
         if sentence:
-            sentences.append([word.lower() for word in sentence])
-            labels.append(label)
-    return sentences, labels
+            sentences.append(sentence)
+            labels.append(sentence_labels)
+
+        return sentences, labels

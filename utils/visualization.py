@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
 
-def plot_f1_scores(train_f1_scores, dev_f1_scores, test_f1, best_epoch, num_epochs):
+def plot_f1_scores(train_f1_scores, dev_f1_scores, test_f1, best_epoch, num_epochs, learn, drop):
     # Plotting the F1 scores
     plt.figure(figsize=(10, 5))
     plt.plot(range(1, num_epochs + 1), train_f1_scores, label='Train F1 Score')
@@ -16,4 +16,4 @@ def plot_f1_scores(train_f1_scores, dev_f1_scores, test_f1, best_epoch, num_epoc
 
     plt.plot([best_epoch + 1], [test_f1], 'ro', label='Test F1 Score')  # Add a single red point for test F1 score
     plt.legend()
-    plt.savefig('f1_scores_plot.png')
+    plt.savefig(f'f1_scores_plot_lr={learn}&d={drop}.png')
