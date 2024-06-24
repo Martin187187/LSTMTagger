@@ -1,20 +1,43 @@
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 from torch.utils.data import DataLoader, Dataset
-# Prepare data
 from models.bilstm_model import LSTM_glove_vecs
 from models.tagging_dataset import TaggingDataset
 from utils.conll_reader import read_conll_file
 from utils.glove_loader import load_glove_vectors, get_emb_matrix
 from utils.metrics import precision_recall_f1
-from utils.training_utils import print_embeddings_for_sentence, predict_tags
-from torch.nn.utils import clip_grad_norm_, clip_grad_value_
+from utils.training_utils import print_embeddings_for_sentence, predict_tags, monitor_gradients
+from torch.nn.utils import clip_grad_norm_
 
 from utils.visualization import plot_f1_scores
 
+
+SEED = 42
+embedding_dim = 50
+hidden_dim = 50  # will get doubled due to bidirectional LSTM
+learning_rate = 0.0001
+dropout_rate = 0.0
+batch_size = 1
+
+# Set seeds for reproducibility
+def set_seed(seed):
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+# Set a seed value
+set_seed(SEED)
+# Check for CUDA availability and set device
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f'Using device: {device}')
+
+# Prepare data
 train_file = 'data/train.conll'
 dev_file = 'data/dev.conll'
 test_file = 'data/test.conll'
@@ -42,41 +65,26 @@ label_to_idx["PAD"] = 0
 idx_to_label = {idx: label for label, idx in label_to_idx.items()}
 
 # Create Dataset and DataLoader
-train_dataset = TaggingDataset(train_sentences, train_labels, vocab_to_idx, label_to_idx, 50)
-dev_dataset = TaggingDataset(dev_sentences, dev_labels, vocab_to_idx, label_to_idx, 50)
-test_dataset = TaggingDataset(test_sentences, test_labels, vocab_to_idx, label_to_idx, 50)
+train_dataset = TaggingDataset(train_sentences, train_labels, vocab_to_idx, label_to_idx, device, None)
+dev_dataset = TaggingDataset(dev_sentences, dev_labels, vocab_to_idx, label_to_idx, device, None)
+test_dataset = TaggingDataset(test_sentences, test_labels, vocab_to_idx, label_to_idx, device, None)
 
-train_loader = DataLoader(train_dataset, batch_size=1, shuffle=True)
-dev_loader = DataLoader(dev_dataset, batch_size=1)
-test_loader = DataLoader(test_dataset, batch_size=1)
+
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+dev_loader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=batch_size)
 
 # Initialize model parameters
 vocab_size = embedding_matrix.shape[0]
-embedding_dim = 50
-hidden_dim = 50  # will get doubled due to bidirectional LSTM
 num_labels = len(label_to_idx)
-learning_rate = 0.0015
-dropout_rate = 0.5
 
 # Initialize the model
 model = LSTM_glove_vecs(embedding_dim, hidden_dim, embedding_matrix, num_labels, dropout_rate)
-
+model.to(device)
 
 # Initialize loss function and optimizer
 criterion = nn.CrossEntropyLoss(ignore_index=0)
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-
-
-# Function to monitor gradients
-def monitor_gradients(model):
-    grad_norms = {}
-    for name, param in model.named_parameters():
-        if param.grad is not None:
-            grad_norms[name] = param.grad.norm().item()
-    return grad_norms
-
-# Print embeddings for a sample test sentence before training
-print_embeddings_for_sentence(test_sentences[2], model, vocab_to_idx)
 
 # Training the model
 num_epochs = 20
@@ -87,7 +95,6 @@ best_model = None
 best_dev_f1 = 0
 best_epoch = 0
 for epoch in range(num_epochs):
-    predict_tags([word.lower() for word in test_sentences[10]], model, vocab_to_idx, idx_to_label)
     model.train()
     total_loss = 0
 
@@ -97,16 +104,17 @@ for epoch in range(num_epochs):
     van = 0
     normal = 0
     for sentences, labels in train_loader:
+        sentences, labels = sentences, labels
         optimizer.zero_grad()
-        output = model(sentences) # Get model predictions
-        output = output.view(-1, num_labels) # Reshape to (sequence_length, num_labels)
-        labels = labels.view(-1) # Reshape to (sequence_length,)
+        output = model(sentences)
+        output = output.view(-1, num_labels)
+        labels = labels.view(-1)
         loss = criterion(output, labels)
         loss.backward()
 
         # Clip gradients
         clip_grad_norm_(model.parameters(), max_norm=1.0)
-        #clip_grad_value_(model.parameters(), 1)
+
         # Check gradient norms
         grad_norms = monitor_gradients(model)
         for name, norm in grad_norms.items():
@@ -132,6 +140,7 @@ for epoch in range(num_epochs):
     print(f"Exploding gradients: {expl} ({percent_exploding:.2f}%)")
     print(f"Vanishing gradients: {van} ({percent_vanishing:.2f}%)")
     print(f"Normal gradients: {normal} ({percent_normal:.2f}%)")
+
     model.eval()
     _, _, train_f1 = precision_recall_f1(train_preds, train_labels_flat, num_labels)
     train_f1_scores.append(train_f1)
@@ -140,6 +149,7 @@ for epoch in range(num_epochs):
     dev_preds = []
     dev_labels_flat = []
     for sentences, labels in dev_loader:
+        sentences, labels = sentences, labels
         with torch.no_grad():
             output = model(sentences)
         preds = torch.argmax(output, dim=2).view(-1).cpu().numpy()
@@ -149,23 +159,23 @@ for epoch in range(num_epochs):
 
     _, _, dev_f1 = precision_recall_f1(dev_preds, dev_labels_flat, num_labels)
     dev_f1_scores.append(dev_f1)
+
     # Save the best model based on dev F1 score
     if dev_f1 > best_dev_f1:
         best_dev_f1 = dev_f1
         best_model = model.state_dict()
         best_epoch = epoch
 
-
-    # Predict and print the tags for the test sentence
     print(f"Epoch {epoch + 1} - Train F1 Score: {train_f1}, Dev F1 Score: {dev_f1}")
 
-
+# Load best model and evaluate on test data
 model.load_state_dict(best_model)
 model.eval()
-# Evaluate on test data
+
 test_preds = []
 test_labels_flat = []
 for sentences, labels in test_loader:
+    sentences, labels = sentences, labels
     with torch.no_grad():
         output = model(sentences)
     preds = torch.argmax(output, dim=2).view(-1).cpu().numpy()
@@ -175,4 +185,6 @@ for sentences, labels in test_loader:
 
 _, _, test_f1 = precision_recall_f1(test_preds, test_labels_flat, num_labels)
 print(f"Test F1 Score of the best model: {test_f1}")
-plot_f1_scores(train_f1_scores, dev_f1_scores, test_f1, best_epoch, num_epochs, learning_rate, dropout_rate)
+
+# Plot F1 scores
+plot_f1_scores(train_f1_scores, dev_f1_scores, test_f1, best_epoch, num_epochs, learning_rate, dropout_rate, batch_size, SEED)

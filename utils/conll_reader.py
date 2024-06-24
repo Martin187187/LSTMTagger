@@ -4,13 +4,13 @@ def read_conll_file(file_path):
         sentence, sentence_labels = [], []
         for line in f:
             if line.startswith("-DOCSTART-"):
+                continue
+            if line.strip() == "":
                 if sentence:
                     sentences.append(sentence)
                     labels.append(sentence_labels)
                     sentence = []
                     sentence_labels = []
-                continue
-            if line.strip() == "":
                 continue
             parts = line.strip().split()
             token = parts[0].lower()  # Lowercase the token
