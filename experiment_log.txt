@@ -1,0 +1,768 @@
+Starting experiments...
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.000016
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=1.6e-05
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.0968936856583639, Dev F1 Score: 0.12770323620465032
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.19271706374667325, Dev F1 Score: 0.2459441770017384
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 3 - Train F1 Score: 0.29044631517201613, Dev F1 Score: 0.3240589732481847
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 4 - Train F1 Score: 0.3571049870595419, Dev F1 Score: 0.3830299685361669
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 5 - Train F1 Score: 0.3972362882512554, Dev F1 Score: 0.4093687467474087
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 6 - Train F1 Score: 0.42100722720160116, Dev F1 Score: 0.42608838874188215
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 7 - Train F1 Score: 0.4437127991446449, Dev F1 Score: 0.44627720086781586
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 8 - Train F1 Score: 0.46696661813638085, Dev F1 Score: 0.46834379390711006
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 9 - Train F1 Score: 0.4895166717494265, Dev F1 Score: 0.48512641938296974
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 10 - Train F1 Score: 0.508169456547315, Dev F1 Score: 0.502033643091545
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 11 - Train F1 Score: 0.5227968082887171, Dev F1 Score: 0.5121357353996616
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 12 - Train F1 Score: 0.5373843699630112, Dev F1 Score: 0.5267835497102757
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 13 - Train F1 Score: 0.557949663310846, Dev F1 Score: 0.54512516680104
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 14 - Train F1 Score: 0.5859133855192205, Dev F1 Score: 0.5659447850368258
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 15 - Train F1 Score: 0.6007199087122117, Dev F1 Score: 0.5870426450334378
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 16 - Train F1 Score: 0.6162906891583176, Dev F1 Score: 0.5942182732985379
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 17 - Train F1 Score: 0.6266817509727133, Dev F1 Score: 0.6035126522051967
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 18 - Train F1 Score: 0.6378921659779027, Dev F1 Score: 0.6083548105352669
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 19 - Train F1 Score: 0.6451101917401245, Dev F1 Score: 0.6229735176845164
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 20 - Train F1 Score: 0.652534974390403, Dev F1 Score: 0.6270995094720088
+Test F1 Score of the best model: 0.6396427695103768
+Test F1 Score of the best model: 0.6396427695103768
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.000032
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=3.2e-05
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.1503762570006702, Dev F1 Score: 0.24073743615904428
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.32431620967330244, Dev F1 Score: 0.3802567627302958
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 3 - Train F1 Score: 0.4079886360685613, Dev F1 Score: 0.4280360324423572
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 4 - Train F1 Score: 0.4550652260298603, Dev F1 Score: 0.4667514913852252
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 5 - Train F1 Score: 0.4999555252238306, Dev F1 Score: 0.5032476648572048
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 6 - Train F1 Score: 0.5319931808651284, Dev F1 Score: 0.5327776480109965
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 7 - Train F1 Score: 0.5740493114815466, Dev F1 Score: 0.571796542564792
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 8 - Train F1 Score: 0.6119853664287438, Dev F1 Score: 0.5913390228293365
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 9 - Train F1 Score: 0.6317315387822869, Dev F1 Score: 0.6100970485326873
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 10 - Train F1 Score: 0.6495470795577996, Dev F1 Score: 0.6294517322600763
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 11 - Train F1 Score: 0.661695437707327, Dev F1 Score: 0.6430072895431244
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 12 - Train F1 Score: 0.6731746894931543, Dev F1 Score: 0.6574117920066482
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 13 - Train F1 Score: 0.6821721946923812, Dev F1 Score: 0.6644810988870011
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 14 - Train F1 Score: 0.6906861983280195, Dev F1 Score: 0.6660567161868192
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 15 - Train F1 Score: 0.6971635484331523, Dev F1 Score: 0.6782420551309023
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 16 - Train F1 Score: 0.7036986214924987, Dev F1 Score: 0.6815715370558576
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 17 - Train F1 Score: 0.7089409927298636, Dev F1 Score: 0.6893004342632011
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 18 - Train F1 Score: 0.7151163436412675, Dev F1 Score: 0.6864234248862506
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 19 - Train F1 Score: 0.7192763177972682, Dev F1 Score: 0.7028302137644621
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 20 - Train F1 Score: 0.7242962789464767, Dev F1 Score: 0.7021211801279535
+Test F1 Score of the best model: 0.6937448115384803
+Test F1 Score of the best model: 0.6937448115384803
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.000064
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=6.4e-05
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.25319310838532105, Dev F1 Score: 0.3804171484464482
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.43020847412298757, Dev F1 Score: 0.4636746446244654
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 3 - Train F1 Score: 0.5165107327877835, Dev F1 Score: 0.5362274218931194
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 4 - Train F1 Score: 0.5925772564415365, Dev F1 Score: 0.6094245671966622
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 5 - Train F1 Score: 0.6380118806206345, Dev F1 Score: 0.6361898353628478
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 6 - Train F1 Score: 0.6657761241582352, Dev F1 Score: 0.6489516216656291
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 7 - Train F1 Score: 0.6847666283898601, Dev F1 Score: 0.6683435234000837
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 8 - Train F1 Score: 0.6995452751674366, Dev F1 Score: 0.6834780206444308
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 9 - Train F1 Score: 0.7097211042856932, Dev F1 Score: 0.690818298969665
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 10 - Train F1 Score: 0.7183957522122844, Dev F1 Score: 0.7047976002195995
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 11 - Train F1 Score: 0.7276250555353814, Dev F1 Score: 0.7065748990619627
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 12 - Train F1 Score: 0.7366777938241874, Dev F1 Score: 0.7198585524648438
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 13 - Train F1 Score: 0.7415711797195926, Dev F1 Score: 0.7201607202913094
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 14 - Train F1 Score: 0.7466524177364914, Dev F1 Score: 0.7154859319968552
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 15 - Train F1 Score: 0.752143133068341, Dev F1 Score: 0.7230786576091124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 16 - Train F1 Score: 0.7569940575234482, Dev F1 Score: 0.7220889940450681
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 17 - Train F1 Score: 0.75926421474052, Dev F1 Score: 0.7319338966666685
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 18 - Train F1 Score: 0.7645597121595691, Dev F1 Score: 0.7270094465342423
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 19 - Train F1 Score: 0.7664416485696492, Dev F1 Score: 0.7368208109688892
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 20 - Train F1 Score: 0.7708534134768261, Dev F1 Score: 0.7377600609179205
+Test F1 Score of the best model: 0.7144585854661996
+Test F1 Score of the best model: 0.7144585854661996
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.000128
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=0.000128
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.35281305087554615, Dev F1 Score: 0.4679220427979452
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.5539953527592769, Dev F1 Score: 0.5999615734010355
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 3 - Train F1 Score: 0.6492722186918201, Dev F1 Score: 0.6473921435772835
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 4 - Train F1 Score: 0.6879064216815273, Dev F1 Score: 0.6957746632637367
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 5 - Train F1 Score: 0.7125429706556642, Dev F1 Score: 0.7049539330810288
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 6 - Train F1 Score: 0.7291761472931155, Dev F1 Score: 0.706035547642515
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 7 - Train F1 Score: 0.7405491491447227, Dev F1 Score: 0.7157963156008643
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 8 - Train F1 Score: 0.7510661111304929, Dev F1 Score: 0.7252981231524938
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 9 - Train F1 Score: 0.7576147398309458, Dev F1 Score: 0.7330030559938484
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 10 - Train F1 Score: 0.7653070545000467, Dev F1 Score: 0.7354834178472162
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 11 - Train F1 Score: 0.7722284482566381, Dev F1 Score: 0.7366625120783763
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 12 - Train F1 Score: 0.77834047609325, Dev F1 Score: 0.7451189829695891
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 13 - Train F1 Score: 0.7831197100335924, Dev F1 Score: 0.7468166932152286
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 359 (0.26%)
+Normal gradients: 140051 (99.74%)
+Epoch 14 - Train F1 Score: 0.7889152788619284, Dev F1 Score: 0.7473133158985441
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 360 (0.26%)
+Normal gradients: 140050 (99.74%)
+Epoch 15 - Train F1 Score: 0.7943040486046203, Dev F1 Score: 0.7494268305876005
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 360 (0.26%)
+Normal gradients: 140050 (99.74%)
+Epoch 16 - Train F1 Score: 0.7986162424735063, Dev F1 Score: 0.7464136524891842
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 360 (0.26%)
+Normal gradients: 140050 (99.74%)
+Epoch 17 - Train F1 Score: 0.8039357112842639, Dev F1 Score: 0.7544061096751495
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 362 (0.26%)
+Normal gradients: 140048 (99.74%)
+Epoch 18 - Train F1 Score: 0.808727357460944, Dev F1 Score: 0.7534562442567101
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 365 (0.26%)
+Normal gradients: 140045 (99.74%)
+Epoch 19 - Train F1 Score: 0.8125538955913056, Dev F1 Score: 0.7569840277351418
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 371 (0.26%)
+Normal gradients: 140039 (99.74%)
+Epoch 20 - Train F1 Score: 0.815767877994996, Dev F1 Score: 0.7568019320810795
+Test F1 Score of the best model: 0.7326218191409282
+Test F1 Score of the best model: 0.7326218191409282
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.000256
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=0.000256
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.45782050374583017, Dev F1 Score: 0.5895040268202578
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.6603394217281974, Dev F1 Score: 0.6896169660452796
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 3 - Train F1 Score: 0.7114766772804706, Dev F1 Score: 0.7106530265162079
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 4 - Train F1 Score: 0.7375935804307405, Dev F1 Score: 0.7302113607752219
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 5 - Train F1 Score: 0.7541270859364083, Dev F1 Score: 0.7334625254883923
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 6 - Train F1 Score: 0.7664058388399665, Dev F1 Score: 0.7415741660575661
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 7 - Train F1 Score: 0.7795157583130716, Dev F1 Score: 0.7445808118329021
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 359 (0.26%)
+Normal gradients: 140051 (99.74%)
+Epoch 8 - Train F1 Score: 0.7874221202115199, Dev F1 Score: 0.7528583777305947
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 360 (0.26%)
+Normal gradients: 140050 (99.74%)
+Epoch 9 - Train F1 Score: 0.7978040807541346, Dev F1 Score: 0.7524612602144579
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 361 (0.26%)
+Normal gradients: 140049 (99.74%)
+Epoch 10 - Train F1 Score: 0.8067747092017564, Dev F1 Score: 0.7561752297465648
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 367 (0.26%)
+Normal gradients: 140043 (99.74%)
+Epoch 11 - Train F1 Score: 0.8141353780810334, Dev F1 Score: 0.756970746627719
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 378 (0.27%)
+Normal gradients: 140032 (99.73%)
+Epoch 12 - Train F1 Score: 0.8207388912670595, Dev F1 Score: 0.7591892710644264
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 395 (0.28%)
+Normal gradients: 140015 (99.72%)
+Epoch 13 - Train F1 Score: 0.8270454662416832, Dev F1 Score: 0.7609506313645141
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 446 (0.32%)
+Normal gradients: 139964 (99.68%)
+Epoch 14 - Train F1 Score: 0.8316933746096536, Dev F1 Score: 0.7657634330153124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 455 (0.32%)
+Normal gradients: 139955 (99.68%)
+Epoch 15 - Train F1 Score: 0.8356626958274429, Dev F1 Score: 0.760838865952575
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 535 (0.38%)
+Normal gradients: 139875 (99.62%)
+Epoch 16 - Train F1 Score: 0.8407935336458058, Dev F1 Score: 0.7563972928332706
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 592 (0.42%)
+Normal gradients: 139818 (99.58%)
+Epoch 17 - Train F1 Score: 0.845281032111781, Dev F1 Score: 0.7630169448603379
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 768 (0.55%)
+Normal gradients: 139642 (99.45%)
+Epoch 18 - Train F1 Score: 0.8490528483056281, Dev F1 Score: 0.7628492905660653
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 922 (0.66%)
+Normal gradients: 139488 (99.34%)
+Epoch 19 - Train F1 Score: 0.851323054372634, Dev F1 Score: 0.7602700400716313
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 1225 (0.87%)
+Normal gradients: 139185 (99.13%)
+Epoch 20 - Train F1 Score: 0.855105871184026, Dev F1 Score: 0.7617064814686364
+Test F1 Score of the best model: 0.7269585932534104
+Test F1 Score of the best model: 0.7269585932534104
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.000512
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=0.000512
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.5708437357916114, Dev F1 Score: 0.6796666434325592
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.7184199418316672, Dev F1 Score: 0.7288554929102867
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 3 - Train F1 Score: 0.7522100133140979, Dev F1 Score: 0.7433050382436216
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 359 (0.26%)
+Normal gradients: 140051 (99.74%)
+Epoch 4 - Train F1 Score: 0.7757561207167107, Dev F1 Score: 0.7529880292365201
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 359 (0.26%)
+Normal gradients: 140051 (99.74%)
+Epoch 5 - Train F1 Score: 0.7922422356382398, Dev F1 Score: 0.7571298969601972
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 364 (0.26%)
+Normal gradients: 140046 (99.74%)
+Epoch 6 - Train F1 Score: 0.8053591528769164, Dev F1 Score: 0.7615314230415708
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 367 (0.26%)
+Normal gradients: 140043 (99.74%)
+Epoch 7 - Train F1 Score: 0.8162561538366081, Dev F1 Score: 0.761131205943728
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 390 (0.28%)
+Normal gradients: 140020 (99.72%)
+Epoch 8 - Train F1 Score: 0.826567649319885, Dev F1 Score: 0.7689027731382413
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 434 (0.31%)
+Normal gradients: 139976 (99.69%)
+Epoch 9 - Train F1 Score: 0.8332393214384037, Dev F1 Score: 0.7727295185052582
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 557 (0.40%)
+Normal gradients: 139853 (99.60%)
+Epoch 10 - Train F1 Score: 0.8415919677216757, Dev F1 Score: 0.7696019511763997
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 814 (0.58%)
+Normal gradients: 139596 (99.42%)
+Epoch 11 - Train F1 Score: 0.8476474191819714, Dev F1 Score: 0.7677273695029521
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 1081 (0.77%)
+Normal gradients: 139329 (99.23%)
+Epoch 12 - Train F1 Score: 0.8532732988929507, Dev F1 Score: 0.7728905556714996
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 1475 (1.05%)
+Normal gradients: 138935 (98.95%)
+Epoch 13 - Train F1 Score: 0.860248544926432, Dev F1 Score: 0.7611260833065036
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 2485 (1.77%)
+Normal gradients: 137925 (98.23%)
+Epoch 14 - Train F1 Score: 0.8638899026947661, Dev F1 Score: 0.7660525020036175
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 3598 (2.56%)
+Normal gradients: 136812 (97.44%)
+Epoch 15 - Train F1 Score: 0.8678587703715859, Dev F1 Score: 0.766235462151311
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 5009 (3.57%)
+Normal gradients: 135401 (96.43%)
+Epoch 16 - Train F1 Score: 0.8708974022826093, Dev F1 Score: 0.7665145376289901
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 5904 (4.20%)
+Normal gradients: 134506 (95.80%)
+Epoch 17 - Train F1 Score: 0.8754490428929411, Dev F1 Score: 0.7611355754575793
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 7421 (5.29%)
+Normal gradients: 132989 (94.71%)
+Epoch 18 - Train F1 Score: 0.8789036246098993, Dev F1 Score: 0.7618588985527669
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 9396 (6.69%)
+Normal gradients: 131014 (93.31%)
+Epoch 19 - Train F1 Score: 0.8802579674024976, Dev F1 Score: 0.7619009579857005
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 11920 (8.49%)
+Normal gradients: 128490 (91.51%)
+Epoch 20 - Train F1 Score: 0.883036674551674, Dev F1 Score: 0.7646331706559246
+Test F1 Score of the best model: 0.7187379002103031
+Test F1 Score of the best model: 0.7187379002103031
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.001
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=0.001
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.6343785919055314, Dev F1 Score: 0.7148266378476458
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 2 - Train F1 Score: 0.7450365187250603, Dev F1 Score: 0.7448903870101578
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 359 (0.26%)
+Normal gradients: 140051 (99.74%)
+Epoch 3 - Train F1 Score: 0.7789715674825766, Dev F1 Score: 0.7585244115227219
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 362 (0.26%)
+Normal gradients: 140048 (99.74%)
+Epoch 4 - Train F1 Score: 0.8014897142527045, Dev F1 Score: 0.7613023817104321
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 374 (0.27%)
+Normal gradients: 140036 (99.73%)
+Epoch 5 - Train F1 Score: 0.8164996894065716, Dev F1 Score: 0.7629101639610084
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 446 (0.32%)
+Normal gradients: 139964 (99.68%)
+Epoch 6 - Train F1 Score: 0.8263429932671935, Dev F1 Score: 0.766880528465441
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 622 (0.44%)
+Normal gradients: 139788 (99.56%)
+Epoch 7 - Train F1 Score: 0.8372130288046113, Dev F1 Score: 0.762055958142493
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 1089 (0.78%)
+Normal gradients: 139321 (99.22%)
+Epoch 8 - Train F1 Score: 0.8442018006299516, Dev F1 Score: 0.7702196345070347
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 1958 (1.39%)
+Normal gradients: 138452 (98.61%)
+Epoch 9 - Train F1 Score: 0.8509687021031093, Dev F1 Score: 0.7634541114379298
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 2855 (2.03%)
+Normal gradients: 137555 (97.97%)
+Epoch 10 - Train F1 Score: 0.8579607840959994, Dev F1 Score: 0.7627093163211576
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 4670 (3.33%)
+Normal gradients: 135740 (96.67%)
+Epoch 11 - Train F1 Score: 0.8622679138594144, Dev F1 Score: 0.766764453276564
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 6172 (4.40%)
+Normal gradients: 134238 (95.60%)
+Epoch 12 - Train F1 Score: 0.8665046111231959, Dev F1 Score: 0.7639420262056307
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 8376 (5.97%)
+Normal gradients: 132034 (94.03%)
+Epoch 13 - Train F1 Score: 0.8698760067918692, Dev F1 Score: 0.7554597842629645
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 10274 (7.32%)
+Normal gradients: 130136 (92.68%)
+Epoch 14 - Train F1 Score: 0.8728025293722272, Dev F1 Score: 0.7607905888288716
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 12354 (8.80%)
+Normal gradients: 128056 (91.20%)
+Epoch 15 - Train F1 Score: 0.8757055687516644, Dev F1 Score: 0.7655289555674589
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 14746 (10.50%)
+Normal gradients: 125664 (89.50%)
+Epoch 16 - Train F1 Score: 0.8783909828165056, Dev F1 Score: 0.7608988562197916
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 16023 (11.41%)
+Normal gradients: 124387 (88.59%)
+Epoch 17 - Train F1 Score: 0.8790403969817348, Dev F1 Score: 0.7604542762172206
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 19040 (13.56%)
+Normal gradients: 121370 (86.44%)
+Epoch 18 - Train F1 Score: 0.8826470316894633, Dev F1 Score: 0.7611940566622579
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 20404 (14.53%)
+Normal gradients: 120006 (85.47%)
+Epoch 19 - Train F1 Score: 0.8821949922305496, Dev F1 Score: 0.7545327400805661
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 23216 (16.53%)
+Normal gradients: 117194 (83.47%)
+Epoch 20 - Train F1 Score: 0.8846971532581301, Dev F1 Score: 0.7533978884573689
+Test F1 Score of the best model: 0.7143868198987726
+Test F1 Score of the best model: 0.7143868198987726
+Running sequence_tagger.py with batch_size=1, dropout_rate=0.0, learning_rate=0.002
+Running with parameters: seed=42, batch_size=1, dropout_rate=0.0, learning_rate=0.002
+Using device: cuda
+max length  113
+max length  109
+max length  124
+Summary of gradient norms:
+Exploding gradients: 0 (0.00%)
+Vanishing gradients: 358 (0.25%)
+Normal gradients: 140052 (99.75%)
+Epoch 1 - Train F1 Score: 0.6726137827136046, Dev F1 Score: 0.7225126344037667
