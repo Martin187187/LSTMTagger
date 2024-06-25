@@ -15,17 +15,23 @@ def get_emb_matrix(pretrained, word_counts):
     vocab_size = len(word_counts) + 2
     emb_size = len(pretrained['.'])
     vocab_to_idx = {}
-    vocab = ["UNK"]
+    vocab = ["PAD", "UNK"]
     W = np.zeros((vocab_size, emb_size), dtype="float32")
     W[0] = np.zeros(emb_size, dtype='float32')  # padding
-    W[1] = np.random.uniform(-0.25, 0.25, emb_size)  # unknown words
+
+    if len(pretrained) > 0:
+        pretrained_mean = np.mean(list(pretrained.values()), axis=0)
+    else:
+        pretrained_mean = np.zeros(emb_size, dtype='float32')
+    W[1] = pretrained_mean
+    vocab_to_idx["PAD"] = 0
     vocab_to_idx["UNK"] = 1
     i = 2
     for word in word_counts:
         if word in pretrained:
             W[i] = pretrained[word]
         else:
-            W[i] = np.random.uniform(-0.25, 0.25, emb_size)
+            W[i] = pretrained_mean
         vocab_to_idx[word] = i
         vocab.append(word)
         i += 1

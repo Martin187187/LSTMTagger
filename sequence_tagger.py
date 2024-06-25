@@ -1,3 +1,4 @@
+import argparse
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -12,14 +13,23 @@ from utils.training_utils import print_embeddings_for_sentence, predict_tags, mo
 from torch.nn.utils import clip_grad_norm_
 
 from utils.visualization import plot_f1_scores
+from torch.optim.lr_scheduler import ReduceLROnPlateau  # Import the scheduler
 
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description="Train a BiLSTM model with GloVe embeddings for sequence tagging.")
+parser.add_argument("--seed", type=int, default=42, help="Random seed")
+parser.add_argument("--batch_size", type=int, default=32, help="Batch size")
+parser.add_argument("--dropout_rate", type=float, default=0.0, help="Dropout rate")
+parser.add_argument("--learning_rate", type=float, default=0.0005, help="Learning rate")
+args = parser.parse_args()
+print(f"Running with parameters: seed={args.seed}, batch_size={args.batch_size}, dropout_rate={args.dropout_rate}, learning_rate={args.learning_rate}")
 
-SEED = 42
+SEED = args.seed
 embedding_dim = 50
 hidden_dim = 50  # will get doubled due to bidirectional LSTM
-learning_rate = 0.0001
-dropout_rate = 0.0
-batch_size = 1
+learning_rate = args.learning_rate
+dropout_rate = args.dropout_rate
+batch_size = args.batch_size
 
 # Set seeds for reproducibility
 def set_seed(seed):
@@ -64,15 +74,31 @@ label_to_idx["PAD"] = 0
 # Create idx_to_label for reverse mapping
 idx_to_label = {idx: label for label, idx in label_to_idx.items()}
 
-# Create Dataset and DataLoader
+
+def collate_fn(batch):
+    # Sort batch by sequence length (descending order) for efficient packing
+    batch.sort(key=lambda x: len(x[0]), reverse=True)
+
+    sentences, labels = zip(*batch)
+
+    # Find the max length in the batch
+    max_length = max(len(sentence) for sentence in sentences)
+
+    # Pad sequences to the max length
+    padded_sentences = [sentence + [0] * (max_length - len(sentence)) for sentence in sentences]
+    padded_labels = [label + [0] * (max_length - len(label)) for label in labels]
+
+    return torch.tensor(padded_sentences).to(device), torch.tensor(padded_labels).to(device)
+
+
+# Create Dataset and DataLoader with dynamic batching
 train_dataset = TaggingDataset(train_sentences, train_labels, vocab_to_idx, label_to_idx, device, None)
 dev_dataset = TaggingDataset(dev_sentences, dev_labels, vocab_to_idx, label_to_idx, device, None)
 test_dataset = TaggingDataset(test_sentences, test_labels, vocab_to_idx, label_to_idx, device, None)
 
-
-train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-dev_loader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=batch_size)
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
+dev_loader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
+test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
 
 # Initialize model parameters
 vocab_size = embedding_matrix.shape[0]
@@ -80,11 +106,15 @@ num_labels = len(label_to_idx)
 
 # Initialize the model
 model = LSTM_glove_vecs(embedding_dim, hidden_dim, embedding_matrix, num_labels, dropout_rate)
+
 model.to(device)
 
 # Initialize loss function and optimizer
 criterion = nn.CrossEntropyLoss(ignore_index=0)
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# Initialize learning rate scheduler
+scheduler = ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=2, verbose=True)
 
 # Training the model
 num_epochs = 20
@@ -106,7 +136,7 @@ for epoch in range(num_epochs):
     for sentences, labels in train_loader:
         sentences, labels = sentences, labels
         optimizer.zero_grad()
-        output = model(sentences)
+        output = model(sentences, teacher_forcing_ratio=0.0)
         output = output.view(-1, num_labels)
         labels = labels.view(-1)
         loss = criterion(output, labels)
@@ -116,6 +146,7 @@ for epoch in range(num_epochs):
         clip_grad_norm_(model.parameters(), max_norm=1.0)
 
         # Check gradient norms
+
         grad_norms = monitor_gradients(model)
         for name, norm in grad_norms.items():
             if norm > 1e3:  # threshold for exploding gradient
@@ -159,6 +190,9 @@ for epoch in range(num_epochs):
 
     _, _, dev_f1 = precision_recall_f1(dev_preds, dev_labels_flat, num_labels)
     dev_f1_scores.append(dev_f1)
+
+    # Update the scheduler
+    scheduler.step(dev_f1)
 
     # Save the best model based on dev F1 score
     if dev_f1 > best_dev_f1:

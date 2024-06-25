@@ -22,5 +22,4 @@ def read_conll_file(file_path):
         if sentence:
             sentences.append(sentence)
             labels.append(sentence_labels)
-
         return sentences, labels
