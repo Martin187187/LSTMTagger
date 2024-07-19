@@ -26,7 +26,8 @@ python -u sequence_tagger.py --seed 420 --batch_size 1 --dropout_rate 0.2 --lear
 ```
 # Results
 
-I put a plot with my result from the command from above. Its has a macro averaged f1 of 0.8 for the Test dataset.
+A plot will be generated with the performance of the train and dev set. 
+In the end the test set will be evaluated on the model, which performed best on the dev set.
 
 
 # Special Notes
