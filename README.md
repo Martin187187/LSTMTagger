@@ -1,26 +1,37 @@
-﻿# LSTM_Tagger
+# LSTM_Tagger
 
-## Init
+# Init
+
+Commands I used to install requirements on my windows machine. I used python 3.12.
 ```command
-python3 -m venv env
-source env/bin/activate
-pip install -r requirements.txt
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install matplotlib
 ```
+Ensure that your directory structure looks like the following: 
+(You have to have conll Data and the glove embedding in order to run this project.)
+root/  
+|-- data/  
+|   |-- dev.conll  
+|   |-- test.conll  
+|   |-- train.conll  
+|-- models/  
+|-- utils/  
+|-- glove.6B.50d.txt
+|-- sequence_tagger.py  
+|-- README.md
 ## Run
 
 ```command
-python sequence_tagger.py --seed 42 --batch_size 1 --dropout_rate 0.2 --learning_rate 0.001
+python -u sequence_tagger.py --seed 420 --batch_size 1 --dropout_rate 0.2 --learning_rate 0.001
 ```
 # Results
 
-I put a plot with my result from the command from above. Its has a macro averaged F1 of 0.8 for the Test dataset.
+I put a plot with my result from the command from above. Its has a macro averaged f1 of 0.8 for the Test dataset.
 
 
-Upon running, a plot will be generated in the same directory.
-
-Special Notes
+# Special Notes
 - Data Handling: The system reads CoNLL data sentence by sentence and converts it to lowercase.
-- Dropout Observation: After testing various dropout rates, it was observed that no dropout performed significantly better.
+- Dropout Observation: After testing various dropout rates, it was observed that dropout 0 to 0.2 performed best.
 - Dataset Performance: Even with higher dropout rates, the development dataset did not improve as much as the training dataset.
 - Teacher Forcing: Experimented with teacher forcing but did not observe notable changes in performance.
 - Learning Rate Scheduler: Implemented a scheduler to adjust the learning rate during training, but its impact was minimal.
